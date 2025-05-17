@@ -25,7 +25,7 @@
 | category_id         | integer    | null: false, ActiveHash使用    |
 | condition_id        | integer    | null: false, ActiveHash使用    |
 | shopping_fee_burden | integer    | null: false                    |
-| shopping_id         | integer    | null: false, ActiveHash使用    |
+| prefecture_id       | integer    | null: false, ActiveHash使用    |
 | delivery_time_id    | integer    | null: false, ActiveHash使用    |
 | price               | integer    | null: false                    |
 | status              | integer    | null: false                    |

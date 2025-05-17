@@ -18,18 +18,17 @@
 
 ## items
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| name                | string     | null: false                    |
-| description         | text       | null: false                    |
-| category_id         | integer    | null: false, ActiveHash使用    |
-| condition_id        | integer    | null: false, ActiveHash使用    |
-| shopping_fee_burden | integer    | null: false                    |
-| prefecture_id       | integer    | null: false, ActiveHash使用    |
-| delivery_time_id    | integer    | null: false, ActiveHash使用    |
-| price               | integer    | null: false                    |
-| status              | integer    | null: false                    |
-| user                | references | null: false, foreign_key: true |
+| Column                 | Type       | Options                        |
+| ---------------------- | ---------- | ------------------------------ |
+| name                   | string     | null: false                    |
+| description            | text       | null: false                    |
+| category_id            | integer    | null: false, ActiveHash使用    |
+| condition_id           | integer    | null: false, ActiveHash使用    |
+| shopping_fee_burden_id | integer    | null: false                    |
+| prefecture_id          | integer    | null: false, ActiveHash使用    |
+| delivery_time_id       | integer    | null: false, ActiveHash使用    |
+| price                  | integer    | null: false                    |
+| user                   | references | null: false, foreign_key: true |
 
 ### Association
 

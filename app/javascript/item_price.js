@@ -11,11 +11,10 @@ const onPriceInput = (event, feeDisplay, profitDisplay) => {
 
   const price = Number(inputValue);
 
-  const isPriceValid = !isNaN(price) && (price >= 300 && price <= 9999999);
-
-  if (isPriceValid) {
+  if (!isNaN(price) && price >= 0) {
     const fee = Math.floor(price * 0.1);
-    const profit = price - fee;
+    const profit = Math.floor(price - fee);
+
     feeDisplay.textContent = fee.toLocaleString();
     profitDisplay.textContent = profit.toLocaleString();
   } else {

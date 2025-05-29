@@ -6,10 +6,11 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase_address = PurchaseAddress.new(purchase_params)
-    if @purchase_address.is_valid
+    if @purchase_address.valid?
       @purchase_address.save
       redirect_to root_path
     else
+      puts @purchase_address.errors.full_messages
       render :index
     end
   end

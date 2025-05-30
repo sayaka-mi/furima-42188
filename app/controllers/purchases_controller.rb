@@ -1,5 +1,8 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
+  before_action :prevent_invalid_access, only: [:index, :create]
+
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @purchase_address = PurchaseAddress.new
@@ -37,6 +40,12 @@ class PurchasesController < ApplicationController
         card: purchase_params[:token],
         currency: 'jpy'
       )
+  end
+
+  def prevent_invalid_access
+    if current_user == @item.user || @item.purchase.present?
+      redirect_to root_path
+    end
   end
 
 end

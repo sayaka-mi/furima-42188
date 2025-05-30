@@ -58,13 +58,37 @@ RSpec.describe PurchaseAddress, type: :model do
     it '電話番号が正しい形式でないと保存できない' do
       @purchase_address.phone_number = '12345'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include('Phone number is invalid. Input only number')
+      expect(@purchase_address.errors.full_messages).to include("Phone number is too short")
     end
 
     it 'tokenが空では登録できないこと' do
       @purchase_address.token = nil
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+    end
+
+    it '電話番号が9桁以下では登録できない' do
+      @purchase_address.phone_number = '12345678'
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("Phone number is too short")
+    end
+
+    it '電話番号が12桁以上では登録できない' do
+      @purchase_address.phone_number = '123456789012'
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("Phone number is too long")
+    end
+
+    it 'user_idが空では登録できない' do
+      @purchase_address.user_id = nil
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("User can't be blank")
+    end
+
+    it 'item_idが空では登録できない' do
+      @purchase_address.item_id = nil
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
     end
   end
 end

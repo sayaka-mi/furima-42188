@@ -17,6 +17,7 @@ test:
   password:
   host: localhost
   database: furima-42188
+  pool: 10
 
 production:
   <<: *default

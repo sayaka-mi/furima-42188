@@ -76,7 +76,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '>= 1.5'
   gem 'unicorn', '6.1.0'
 end
 
@@ -92,3 +91,4 @@ gem 'pry-rails'
 gem 'payjp'
 
 gem 'gon'
+

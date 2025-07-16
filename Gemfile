@@ -97,3 +97,4 @@ gem 'payjp'
 
 gem 'gon'
 
+gem 'sprockets-rails'
